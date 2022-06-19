@@ -26,5 +26,20 @@ aws-cfn-outputs -s stack-name -t template.txt
 
 For the full template syntax see Go standard library [text/template] package.
 
+This program requires “cloudformation:DescribeStacks” IAM permission:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "cloudformation:DescribeStacks",
+      "Resource": "arn:aws:cloudformation:...",
+      "Effect": "Allow"
+    }
+  ]
+}
+```
+
 [stack outputs]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
 [text/template]: https://pkg.go.dev/text/template
